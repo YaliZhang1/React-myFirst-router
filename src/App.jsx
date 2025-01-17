@@ -3,7 +3,6 @@ import { Route, Routes } from "react-router-dom";
 import Home from "./pages/Home";
 import About from "./pages/About";
 import MyNavLink from "./components/MyNavLink";
-import Jump from "./pages/Jump";
 
 export default class App extends Component {
   render() {
@@ -30,14 +29,12 @@ export default class App extends Component {
             <div className="panel">
               <div className="panel-body">
                 {/* 注册路由 */}
-
                 <Routes>
                   {/* 必须要设置一个默认的路径，添加 path="/" 或重定向到其他页面 */}
                   <Route path="/" element={<Home />} />
+                  {/* 下面这行必须要，这样才可以继续找到其子路径 */}
                   <Route path="/home/*" element={<Home />} />
                   <Route path="/about" element={<About />} />
-                  <Route path="/home" element={<Home />} />
-                  <Route path="/home" element={<Jump />} />
                 </Routes>
               </div>
             </div>
